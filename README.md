@@ -8,7 +8,7 @@
 
 ## FUTURE UPDATE
 
-- Refactor code in module to increase maintainable and update features
+- Refactor code in module to increase maintainable and update features ✔
 - Rewrite all encode and decode Hill
 - More cryptography function
 - (May be) form input data and render to HTML
