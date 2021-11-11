@@ -2,7 +2,7 @@
 
 ## @author: Minh Quân Lê - j4f
 
-## -> IMPORTANT: PHẦN DECODE HILL KHÔNG ĐÚNG TRONG MỌI TRƯỜNG HỢP, THẤY ĐÁP ÁN SAI SAI LÀ BIẾT RỒI :))
+## -> IMPORTANT: PHẦN ENCODE, DECODE HILL CHỈ ĐÚNG TRONG TRƯỜNG HỢP KEY <=9 (MA TRẬN VUÔNG BẬC 3 HOẶC 2), ĐỘ DÀI BẢN RÕ (HOẶC BẢN MÃ KHÔNG ẢNH HƯỞNG)
 
 ---
 

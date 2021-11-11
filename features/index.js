@@ -8,7 +8,7 @@ export { exponentialZn } from './exponentialZn.js'
 export { findSRTinZ } from './findSRTinZ.js'
 export { primitiveRoot } from './primitiveRoot.js'
 export { encodeHill, decodeHill } from './hillCrypto.js'
-export { findKeyDES /*decodeHill*/ } from './desCrypto.js'
+export { findKeyDES } from './desCrypto.js'
 
 // * IMPORT VÔ FILE NÀO CẦN UTILS RỒI XÓA MẤY CÁI KHÔNG CẦN THIẾT
 // import {
