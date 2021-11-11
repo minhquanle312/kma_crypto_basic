@@ -1,4 +1,4 @@
-export { primeNumbers, ALPHABET_CODE } from './constants.js'
+export { primeNumbers, ALPHABET_CODE, ALPHABET } from './constants.js'
 export {
   gcd,
   calcPrimeFactorization,

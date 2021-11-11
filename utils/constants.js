@@ -36,3 +36,33 @@ export const ALPHABET_CODE = {
   24: 'Y',
   25: 'Z',
 }
+
+// *Thay thế tạm thời bên trên (dùng cho Hill)
+export const ALPHABET = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z',
+]

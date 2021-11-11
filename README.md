@@ -9,6 +9,8 @@
 ## FUTURE UPDATE
 
 - Refactor code in module to increase maintainable and update features ✔
-- Rewrite all encode and decode Hill
+- Rewrite all encode and decode Hill ✔
 - More cryptography function
+  - DES ✔
+- Increase reuseable of function, make code cleaner
 - (May be) form input data and render to HTML

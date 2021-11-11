@@ -11,7 +11,8 @@ import {
   findSRTinZ,
   primitiveRoot,
   encodeHill,
-  decodeHill,
+  // decodeHill,
+  findKeyDES,
 } from '../features/index.js'
 import {
   matDecompose,

@@ -230,12 +230,14 @@ export const multiplyMatrices = (A, B) =>
 export const matrixInZn = (matrix, n = 26) => {
   const result = []
   for (const row of matrix) {
-    result.push(row.map(item => item % n))
+    result.push(
+      row.map(item => (item >= 0 ? item % n : 26 - (Math.abs(item) % 26)))
+    )
   }
   return result
 }
 
-// console.table(matrixInZn([[159, 212]]))
+// console.table(matrixInZn([[-0, -939]]))
 
 // * Nhân ma trận với 1 số
 export const multiplyMatrixNumber = (number, matrix) => {

@@ -1,129 +1,150 @@
 'use strict'
 
 import {
-  matDecompose,
-  vecMake,
-  vecInit,
-  matMake,
-  matInit,
-  vecShow,
-  matShow,
-  matProduct,
-  matDeterminant,
   multiplyMatrices,
   matrixInZn,
   multiplyMatrixNumber,
   matInverse,
-  reduce,
   det,
   gcd,
-  calcPrimeFactorization,
-  numberPrimeFactorization,
-  messagePrimeFactorization,
-  messageExponential,
-  encodeChar,
-  asciiToHex,
-  hexToBin,
-  primeNumbers,
-  ALPHABET_CODE,
+  ALPHABET,
 } from '../utils/index.js'
-// * Mã hóa Hill
-export const encodeHill = (
-  plaintext,
-  k,
-  op = true,
-  k_1 = false,
-  isDecode = false
-) => {
-  let opening = `Ta thấy rằng ma trận có cỡ ${k.length}x${k.length} nên bản rõ sẽ được chia thành các phần tử, mỗi phần tử chứa ${k.length} ký tự:`
 
-  let message
-  if (op) message += opening
+import { congruenceEquationShort } from './index.js'
+
+// * Mã hóa Hill
+// * Chuyển từ chuỗi ký tự sang mảng số trong miền Z26
+export const encodeStringArrayNumber = plaintext => {
+  const code = plaintext
+    .toUpperCase()
+    .split('')
+    .map(val => ALPHABET.indexOf(val))
+  // .join('')
+  return code
+}
+
+// * chuyển chuỗi sang ma trận miền Z[26]
+// ! Hiện tại chỉ dùng ổn định với chuỗi <= 10 (còn update) => hoạt động sai khi khóa dài 16, 25, ... trở lên
+const stringToMatrixZ26 = (str, step = 0) => {
+  const matrix = []
+  let string = [...encodeStringArrayNumber(str)]
+
+  if (step === 0) {
+    if (string.length % 2 === 0) {
+      step = 2
+    } else if (string.length % 3 === 0) {
+      step = 3
+    }
+  }
+
+  for (let i = 0; i < string.length; ) {
+    matrix.push(string.slice(i, i + step))
+    i += step
+  }
+
+  return matrix
+}
+
+// ! Hoạt động ổn định với plaintext không giới hạn độ dài (chia hết cho 2 hoặc 3)
+// ! key <= 9 (tức 4 hoặc 9 để tạo ma trận vuông)
+export const encodeHill = (plaintext, key, isDecode = false) => {
+  let message = `k${isDecode ? '(^-1) = CTA * det(K)^(-1)' : ''} = `
+  if (typeof key === 'string') {
+    key = stringToMatrixZ26(key)
+  }
+
+  for (let i = 0; i < key.length; i++) {
+    const temp = key[i].join('   ')
+    message += `\n${temp}\n`
+  }
   plaintext = plaintext.toUpperCase()
+  message += `\nTa thấy rằng khóa là ma trận có cỡ ${key.length}x${
+    key.length
+  } nên bản ${
+    isDecode ? 'mã' : 'rõ'
+  } sẽ được chia thành các phần tử, mỗi phần tử chứa ${key.length} ký tự:`
+
+  let plaintextMatrix = stringToMatrixZ26(plaintext, key.length)
 
   const wordArr = []
   for (let i = 0; i < plaintext.length; ) {
-    wordArr.push(plaintext.slice(i, i + k.length))
-    i += k.length
+    wordArr.push(plaintext.slice(i, i + key.length))
+    i += key.length
   }
-
-  const hillCode = [...wordArr].map(word =>
-    word
-      .split('')
-      .map(val => {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [code, char] of Object.entries(ALPHABET_CODE)) {
-          if (val === char) return code
-        }
-      })
-      .join(' ')
-  )
 
   const encode = []
   for (let i = 0; i < wordArr.length; i++) {
-    const subArr = [[...hillCode[i].split(' ')].map(item => Number(item))]
-    let encodeNumber = matrixInZn(multiplyMatrices(subArr, k))
-    let decodeChar = encodeNumber[0].map(char => ALPHABET_CODE[char]).join('')
-    encode.push(decodeChar)
+    let encodeToNumber = matrixInZn(multiplyMatrices([plaintextMatrix[i]], key))
+    let decodeToChar = encodeToNumber[0].map(char => ALPHABET[char]).join('')
+    encode.push(decodeToChar)
 
-    message += `\n'${wordArr[i]}' <=> (${hillCode[i]
-      .split(' ')
-      .join(', ')}) x ${
-      k_1 === true ? 'k^(-1)' : 'k'
-    } = (${encodeNumber}) => ${decodeChar}`
+    message += `\n'${wordArr[i]}' <=> (${plaintextMatrix[i].join(
+      ', '
+    )}) x k = (${encodeToNumber}) => ${decodeToChar}`
   }
 
-  return (
-    message + `\nBản ${isDecode === true ? 'rõ' : 'mã'} là: ${encode.join('')}`
-  )
+  return message + `\nBản ${isDecode ? 'mã' : 'rõ'} là: ${encode.join('')}`
+  // return encode
 }
 
-console.log(1223423)
+// console.log(encodeHill('hocvienhocvienmatmahochimin', 'neverquit'))
 
-export const decodeHill = (plaintext, k) => {
-  let detK = det(k)
+// !OLD VERSION BELOW
 
-  console.log(detK)
-
-  // !FIXME: ĐỔI detK VỀ Z[26], BIỆN PHÁP TẠM THỜI, sau phải tách ra hàm riêng để tái sử dụng
-  // ! Còn trường hợp detK = 0 chưa biết nên chưa làm, ai có ý kiến thì contribute giúp
-  // if (detK > 0) detK = detK % 26
-  // else if (detK < 0) {
-  //   const temp = Math.ceil(Math.abs(detK) / 26)
-  //   detK = (26 * temp) % detK
-  // }
-
-  const isInvertible = gcd(26, detK) === 1 ? true : false
-
-  console.log('matrix inverse: ', multiplyMatrixNumber(det(k), matInverse(k)))
-
-  // const kMinus1Temp = matrixInZn(multiplyMatrixNumber(det(k), matInverse(k)))
-  const kMinus1Temp = matrixInZn(multiplyMatrixNumber(det(k), matInverse(k)))
-  const kMinus1 = []
-  for (const row of kMinus1Temp) {
-    kMinus1.push(row.map(item => (item < 0 ? item + 26 : item)))
+export const decodeHill = (plaintext, key) => {
+  let message = 'k = '
+  if (typeof key === 'string') {
+    key = stringToMatrixZ26(key)
   }
 
-  console.log(kMinus1)
+  // in ma trận, sau này tách hàm
+  for (let i = 0; i < key.length; i++) {
+    const temp = key[i].join('   ')
+    message += `\n${temp}\n`
+  }
+  plaintext = plaintext.toUpperCase()
 
-  let message = `k^(-1) = `
-  for (const row of kMinus1) {
-    message += `${row.join('   ')}\n\t\t`
+  // *Phần giải dưới đầy
+  const detK = det(key)
+  const detKZ26 = 26 - (Math.abs(detK) % 26)
+  const isInvertible = gcd(26, detKZ26) === 1 ? true : false
+  // console.log(detK, detKZ26, isInvertible)
+
+  message += `\ndet(K) = ${detK} chuyển về Z[26] det(K) = ${detKZ26}`
+  message += `\nVì (det(K), 26) = ${gcd(26, detKZ26)} => ma trận ${
+    isInvertible ? 'khả nghịch' : 'không khả nghịch'
+  }\n(Cái ở dưới viết là C mũ T, A ở dưới nha)\n`
+
+  // Tính ma trận chuyển vị sau đó nhân với detKMinus1
+  // Ma trận chuyển vị = det x ma trận nghịch đảo
+  const matrixTransposition = multiplyMatrixNumber(detK, matInverse(key))
+  const CTA = matrixInZn(matrixTransposition)
+
+  message += 'CTA = \n'
+  // in ma trận, sau này tách hàm
+  for (let i = 0; i < key.length; i++) {
+    const temp = key[i].join('   ')
+    message += `\n${temp}\n`
+  }
+  message += '\n = '
+  for (let i = 0; i < matrixTransposition.length; i++) {
+    const temp = matrixTransposition[i].join('   ')
+    message += `\n${temp}\n`
+  }
+  message += '\n -> Z[26] CTA = '
+  for (let i = 0; i < CTA.length; i++) {
+    const temp = CTA[i].join('   ')
+    message += `\n${temp}\n`
   }
 
-  // console.log(kMinus1)
-  // console.log(matrixInZn(kMinus1))
+  const detKMinus1 = congruenceEquationShort(detKZ26, 1, 26)
+  message += `det(K)^(-1) = ${detKZ26}^(-1) = ${detKMinus1}\n`
 
-  message += `\ndet(k) = ${detK}; UCLN(26, det(k)) = ${gcd(26, detK)}`
+  const kMinus1 = matrixInZn(multiplyMatrixNumber(detKMinus1, CTA))
 
-  if (!isInvertible)
-    return (
-      message +
-      `\nUCLN(26, det(k)) = ${gcd(26, detK)} != 1 nên ma trận không khả nghịch`
-    )
-  message += `\nVậy k khả nghịch trên Z[26]`
+  const result = encodeHill(plaintext, kMinus1, true)
 
-  message += `\n${encodeHill(plaintext, kMinus1, false, true, true)}`
-
-  return message
+  return message + result
 }
+
+// console.log(decodeHill('FWTVSVJXBKNKGVAEDMWXOGJUGCD', 'neverquit'))

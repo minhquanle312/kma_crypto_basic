@@ -1,6 +1,6 @@
 'use strict'
 
-import { primeNumbers, ALPHABET_CODE } from './constants.js'
+import { primeNumbers, ALPHABET_CODE, ALPHABET } from './constants.js'
 
 // *Tìm UCLN: greatest common divisor
 export const gcd = (...arr) => {
@@ -67,13 +67,12 @@ export const messageExponential = (a, b) => {
   return message
 }
 
-// * Chuyển từ ký tự sang số
+// * Chuyển từ ký tự sang số trong miền Z26
 export const encodeChar = plaintext => {
   const code = plaintext
     .toUpperCase()
     .split('')
     .map(val => {
-      // eslint-disable-next-line no-restricted-syntax
       for (const [code, char] of Object.entries(ALPHABET_CODE)) {
         if (val === char) return code
       }
@@ -82,7 +81,7 @@ export const encodeChar = plaintext => {
   return code
 }
 
-// * Mã hóa DES
+// * Chuỗi -> ASCII sang hexa
 export const asciiToHex = str => {
   var arr1 = []
   for (var n = 0, l = str.length; n < l; n++) {
@@ -95,17 +94,3 @@ export const asciiToHex = str => {
 export const hexToBin = hex => {
   return parseInt(hex, 16).toString(2).padStart(8, '0')
 }
-// console.log(asciiToHex('NEVRQUIT'))
-// Chỉ đúng với 2 ký tự
-// console.log(hexToBin('4E'))
-
-// var result = ''
-// '21 23 00 6A D0 0F 69 4C E1 20'.split(' ').forEach(str => {
-//   result += hexToBin(str)
-// })
-// console.log(result)
-// var result = ''
-// '41 54 31 35 30 37 33 39'.split(' ').forEach(str => {
-//   result += hexToBin(str)
-// })
-// console.log(result)
