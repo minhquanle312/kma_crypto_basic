@@ -1,0 +1,38 @@
+/* max-width: 1023px */
+@media (max-width: 63.9375em) {
+  .app {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .header h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .section-1 h2 {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+  }
+  .section-1 .section-1__form {
+    display: flex;
+    flex-direction: column;
+  }
+  .section-1 .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-1 .form-control {
+    margin: 10px 0;
+  }
+  .section-1 .btn {
+    width: 400px;
+  }
+}
+
+/* *min-width: 740px and max-width: 1023px */
+@media (min-width: 45.1875em) and (max-width: 63.9375em) {
+}
+
+/* *max-width: 723px */
+@media (max-width: 45.1875em) {
+}

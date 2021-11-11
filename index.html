@@ -4,9 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>BASIC CRYPTO</title>
   </head>
-  <body></body>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="header__navbar"></div>
+        <h1>GIẢI BÀI TẬP LÝ THUYẾT MẬT MÃ</h1>
+        <h2>
+          Trả về template string hết rồi nên lười render HTML, nhập input rồi mở
+          dev tool coi kết quả
+        </h2>
+      </header>
+      <div class="container">
+        <section class="section-1">
+          <h2>HILL CRYPTOGRAPHY ENCODE</h2>
+          <div class="section-1__form">
+            <div class="form-group">
+              <label for="hill-encode-plaintext" class="form-label"
+                >Bản rõ</label
+              >
+              <input
+                id="hill-encode-plaintext"
+                name="hill-encode-plaintext"
+                type="text"
+                class="form-control"
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="hill-encode-key" class="form-label">Khóa</label>
+              <input
+                id="hill-encode-key"
+                name="hill-encode-key"
+                type="text"
+                class="form-control"
+              />
+              <span class="form-message"></span>
+            </div>
+            <button class="btn section-1__btn">Submit</button>
+          </div>
+          <div class="section-1__answer"></div>
+        </section>
+        <section class="section-1">
+          <h2>HILL CRYPTOGRAPHY DECODE</h2>
+          <div class="section-1__form">
+            <div class="form-group">
+              <label for="hill-decode-plaintext" class="form-label"
+                >Bản mã</label
+              >
+              <input
+                id="hill-decode-plaintext"
+                name="hill-decode-plaintext"
+                type="text"
+                class="form-control"
+              />
+              <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="hill-decode-key" class="form-label">Khóa</label>
+              <input
+                id="hill-decode-key"
+                name="hill-decode-key"
+                type="text"
+                class="form-control"
+              />
+              <span class="form-message"></span>
+            </div>
+            <button class="btn section-2__btn">Submit</button>
+          </div>
+          <div class="section-1__answer"></div>
+        </section>
+      </div>
+    </div>
+  </body>
 
   <script type="module" src="main.js"></script>
 </html>

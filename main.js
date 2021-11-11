@@ -11,7 +11,7 @@ import {
   findSRTinZ,
   primitiveRoot,
   encodeHill,
-  // decodeHill,
+  decodeHill,
   findKeyDES,
 } from '../features/index.js'
 import {
@@ -41,6 +41,31 @@ import {
   primeNumbers,
   ALPHABET_CODE,
 } from '../utils/index.js'
+
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
+
+const hillEncodePlaintext = $('#hill-encode-plaintext')
+const hillEncodeKey = $('#hill-encode-key')
+const hillDecodePlaintext = $('#hill-decode-plaintext')
+const hillDecodeKey = $('#hill-decode-key')
+
+const section1 = $('.section-1')
+const section1Answer = $('.section-1__answer')
+const btnSection1 = $('.section-1__btn')
+const btnSection2 = $('.section-2__btn')
+
+// * Event handler
+btnSection1.addEventListener('click', function (e) {
+  const result = encodeHill(hillEncodePlaintext.value, hillEncodeKey.value)
+  console.log(result)
+})
+
+btnSection2.addEventListener('click', function (e) {
+  const result = decodeHill(hillDecodePlaintext.value, hillDecodeKey.value)
+  console.log(result)
+})
+
 // CÁC HÀM TÍNH TOÁN
 // ==============================
 // TODO:Tìm UCLN: greatest common divisor
@@ -102,4 +127,10 @@ import {
 // ***************PHẦN MẬT MÃ
 // TODO: Mã hóa Hill
 // ! Nếu key là string thì dùng hàm này trước để tìm ma trận: string => Z[26]
-// console.log(encodeChar('NEVERQUIT'))
+// console.log(decodeHill('eodvvd', 'rrfvsvcct'))
+
+// console.log(decodeHill('FWTVSVJXBKNKGVAEDMWXOGJUGCD', 'neverquit'))
+// console.log(encodeHill('hocvienhocvienmatmahochimin', 'neverquit'))
+
+// TODO: DES
+// console.log(findKeyDES('AT150739'))

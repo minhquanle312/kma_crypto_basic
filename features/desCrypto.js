@@ -1,45 +1,6 @@
 'use strict'
 
-import {
-  matDecompose,
-  vecMake,
-  vecInit,
-  matMake,
-  matInit,
-  vecShow,
-  matShow,
-  matProduct,
-  matDeterminant,
-  multiplyMatrices,
-  matrixInZn,
-  multiplyMatrixNumber,
-  matInverse,
-  reduce,
-  det,
-  gcd,
-  calcPrimeFactorization,
-  numberPrimeFactorization,
-  messagePrimeFactorization,
-  messageExponential,
-  encodeChar,
-  asciiToHex,
-  hexToBin,
-  primeNumbers,
-  ALPHABET_CODE,
-} from '../utils/index.js'
-
-import {
-  calcEuler,
-  calcInverseZn,
-  congruenceEquation,
-  congruenceEquationShort,
-  exponentialZn,
-  findSRTinZ,
-  primitiveRoot,
-  encodeHill,
-  decodeHill,
-} from './index.js'
-
+import { asciiToHex, hexToBin } from '../utils/index.js'
 // * Mã hóa DES
 
 export const findKeyDES = key => {
@@ -215,26 +176,8 @@ export const findKeyDES = key => {
     message += '\n'
     i += 6
   }
-  console.log(k1)
 
   message += `k1 = ${k1}`
 
   return message
 }
-
-console.log(findKeyDES('AT150754'))
-// console.log(findKeyDES('AT150739'))
-// Chỉ đúng với 2 ký tự
-// 4154313530373534
-// console.log(hexToBin('4'))
-
-// var result = ''
-// '21 23 00 6A D0 0F 69 4C E1 20'.split(' ').forEach(str => {
-//   result += hexToBin(str)
-// })
-// console.log(result)
-// var result = ''
-// '41 54 31 35 30 37 33 39'.split(' ').forEach(str => {
-//   result += hexToBin(str)
-// })
-// console.log(result)
