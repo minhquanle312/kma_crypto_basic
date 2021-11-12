@@ -8,7 +8,7 @@
 
 .container {
   display: block;
-  margin: auto;
+  margin: 0 auto 100px;
   width: 1200px;
 }
 

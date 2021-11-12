@@ -3,6 +3,8 @@
  * @author: Minh Quân Lê
  */
 
+console.log('NHỚ BẤM CLEAR SAU MỖI LẦN DÙNG CHO DỄ NHÌN')
+
 import {
   calcEuler,
   calcInverseZn,
@@ -46,10 +48,17 @@ import {
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const section1 = $('.section-1')
-const section1Answer = $('.section-1__answer')
 const btnSection1 = $('.section-1__btn')
 const btnSection2 = $('.section-2__btn')
+
+// *Header handler
+const sidebarToggle = $('.sidebar-toggle')
+const btnSidebar = $$('.header__icon')
+btnSidebar.forEach(item => {
+  item.addEventListener('click', function (e) {
+    sidebarToggle.classList.toggle('active')
+  })
+})
 
 // *Hill handler
 const hillEncodePlaintext = $('#hill-encode-plaintext')
@@ -57,7 +66,6 @@ const hillEncodeKey = $('#hill-encode-key')
 const hillDecodePlaintext = $('#hill-decode-plaintext')
 const hillDecodeKey = $('#hill-decode-key')
 
-// * Event handler
 btnSection1.addEventListener('click', function (e) {
   const result = encodeHill(hillEncodePlaintext.value, hillEncodeKey.value)
   console.log(result)
@@ -68,13 +76,26 @@ btnSection2.addEventListener('click', function (e) {
   console.log(result)
 })
 
-// *Header handler
-const sidebarToggle = $('.sidebar-toggle')
-const btnSidebar = $$('.header__icon')
-btnSidebar.forEach(item => {
-  item.addEventListener('click', function (e) {
-    sidebarToggle.classList.toggle('active')
-  })
+// *Vigenere handler
+const vigenereEncodePlaintext = $('#vigenere-encode-plaintext')
+const vigenereEncodeKey = $('#vigenere-encode-key')
+const btnSection3 = $('.section-3__btn')
+
+btnSection3.addEventListener('click', function (e) {
+  const result = encodeVigenere(
+    vigenereEncodePlaintext.value,
+    vigenereEncodeKey.value
+  )
+  console.log(result)
+})
+
+// *DES
+const desKey = $('#des-key')
+const btnSection4 = $('.section-4__btn')
+
+btnSection4.addEventListener('click', function (e) {
+  const result = findKeyDES(desKey.value)
+  console.log(result)
 })
 
 // CÁC HÀM TÍNH TOÁN

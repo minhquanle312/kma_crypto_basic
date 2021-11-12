@@ -86,4 +86,4 @@ export const encodeVigenere = (plaintext, key) => {
   return message + `\nVậy kết quả là: ${encode.join('')}`
 }
 
-console.log(encodeVigenere('MEETMEATSUNSET', 'CIPHER'))
+// console.log(encodeVigenere('MEETMEATSUNSET', 'CIPHER'))

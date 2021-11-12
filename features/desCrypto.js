@@ -177,7 +177,13 @@ export const findKeyDES = key => {
     i += 6
   }
 
-  message += `k1 = ${k1}`
+  let result = []
+  for (let i = 0; i < k1.length; ) {
+    result.push(k1.slice(i, i + 7))
+    i += 7
+  }
+
+  message += `k1 = ${result.join(' - ')}`
 
   return message
 }
