@@ -94,3 +94,13 @@ export const asciiToHex = str => {
 export const hexToBin = hex => {
   return parseInt(hex, 16).toString(2).padStart(8, '0')
 }
+
+// * Chuyển từ chuỗi ký tự sang mảng số trong miền Z26
+export const encodeStringArrayNumber = plaintext => {
+  const code = plaintext
+    .toUpperCase()
+    .split('')
+    .map(val => ALPHABET.indexOf(val))
+  // .join('')
+  return code
+}

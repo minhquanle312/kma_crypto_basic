@@ -13,6 +13,7 @@ import {
   encodeHill,
   decodeHill,
   findKeyDES,
+  encodeVigenere,
 } from '../features/index.js'
 import {
   matDecompose,
@@ -45,15 +46,16 @@ import {
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const hillEncodePlaintext = $('#hill-encode-plaintext')
-const hillEncodeKey = $('#hill-encode-key')
-const hillDecodePlaintext = $('#hill-decode-plaintext')
-const hillDecodeKey = $('#hill-decode-key')
-
 const section1 = $('.section-1')
 const section1Answer = $('.section-1__answer')
 const btnSection1 = $('.section-1__btn')
 const btnSection2 = $('.section-2__btn')
+
+// *Hill handler
+const hillEncodePlaintext = $('#hill-encode-plaintext')
+const hillEncodeKey = $('#hill-encode-key')
+const hillDecodePlaintext = $('#hill-decode-plaintext')
+const hillDecodeKey = $('#hill-decode-key')
 
 // * Event handler
 btnSection1.addEventListener('click', function (e) {
@@ -64,6 +66,15 @@ btnSection1.addEventListener('click', function (e) {
 btnSection2.addEventListener('click', function (e) {
   const result = decodeHill(hillDecodePlaintext.value, hillDecodeKey.value)
   console.log(result)
+})
+
+// *Header handler
+const sidebarToggle = $('.sidebar-toggle')
+const btnSidebar = $$('.header__icon')
+btnSidebar.forEach(item => {
+  item.addEventListener('click', function (e) {
+    sidebarToggle.classList.toggle('active')
+  })
 })
 
 // CÁC HÀM TÍNH TOÁN
@@ -126,9 +137,7 @@ btnSection2.addEventListener('click', function (e) {
 
 // ***************PHẦN MẬT MÃ
 // TODO: Mã hóa Hill
-// ! Nếu key là string thì dùng hàm này trước để tìm ma trận: string => Z[26]
 // console.log(decodeHill('eodvvd', 'rrfvsvcct'))
-
 // console.log(decodeHill('FWTVSVJXBKNKGVAEDMWXOGJUGCD', 'neverquit'))
 // console.log(encodeHill('hocvienhocvienmatmahochimin', 'neverquit'))
 

@@ -1,15 +1,64 @@
 .app {
+  /* display: block;
+  margin: auto;
+  width: 1200px; */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
   display: block;
   margin: auto;
   width: 1200px;
 }
 
+/* *BEGIN: Header navbar and sidebar */
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.header__navbar {
+  /* top: 0; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: #999;
+  /* width: 100%; */
+  height: var(--navbar-height);
+}
+.header-content {
+  margin-top: var(--navbar-height);
+}
+
+.header__icon {
+  font-size: 3rem;
+  padding: 22px;
+  cursor: pointer;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  transform: translateX(-100%);
+  background-color: skyblue;
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+
+.sidebar-toggle.active {
+  transform: translateX(0);
+}
+
+/* *END: Header navbar and sidebar */
 
 .header h1 {
   font-size: 4.6rem;

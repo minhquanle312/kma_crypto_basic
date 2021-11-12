@@ -1,6 +1,6 @@
 /* max-width: 1023px */
 @media (max-width: 63.9375em) {
-  .app {
+  .container {
     width: 100%;
     padding: 0 10px;
   }
