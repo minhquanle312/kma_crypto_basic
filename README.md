@@ -8,6 +8,9 @@
 
 ## FUTURE UPDATE
 
+- Vigenere: còn trường hợp khóa dài hơn mã => Vẫn chạy bình thường ✔
+  - Giải mã = (encode - key) mod 26
+  - Tìm khóa = (encode - plaintext) mod 26
 - Refactor code in module to increase maintainable and update features ✔
 - Rewrite all encode and decode Hill ✔
 - More cryptography function

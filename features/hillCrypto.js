@@ -106,7 +106,7 @@ export const decodeHill = (plaintext, key) => {
 
   // *Phần giải dưới đầy
   const detK = det(key)
-  const detKZ26 = 26 - (Math.abs(detK) % 26)
+  const detKZ26 = detK < 0 ? 26 - (Math.abs(detK) % 26) : detK % 26
   const isInvertible = gcd(26, detKZ26) === 1 ? true : false
   // console.log(detK, detKZ26, isInvertible)
 
