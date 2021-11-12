@@ -58,11 +58,11 @@ export const encodeVigenere = (plaintext, key) => {
 
   keyArrFull = keyArrFull.splice(0, plaintextArr.length)
 
-  message += `${'Bản rõ: '.padEnd(8, ' ')}${plaintextArr
-    .map(item => String(item).padEnd(5, ' '))
+  message += `\n${'Bản rõ: '.padEnd(8, ' ')}${plaintextArr
+    .map(item => String(item).padEnd(4, ' '))
     .join('')}`
   message += `\n${'Khóa: '.padEnd(8, ' ')}${keyArrFull
-    .map(item => String(item).padEnd(5, ' '))
+    .map(item => String(item).padEnd(4, ' '))
     .join('')}`
 
   const encodeArr = Array.from(
@@ -71,7 +71,7 @@ export const encodeVigenere = (plaintext, key) => {
   )
 
   message += `\n${'Bản mã: '.padEnd(8, ' ')}${encodeArr
-    .map(item => String(item).padEnd(5, ' '))
+    .map(item => String(item).padEnd(4, ' '))
     .join('')}`
 
   const encode = []
@@ -80,10 +80,8 @@ export const encodeVigenere = (plaintext, key) => {
   }
 
   message += `\n${'Ký tự: '.padEnd(8, ' ')}${encode
-    .map(item => String(item).padEnd(5, ' '))
+    .map(item => String(item).padEnd(4, ' '))
     .join('')}`
 
   return message + `\nVậy kết quả là: ${encode.join('')}`
 }
-
-// console.log(encodeVigenere('MEETMEATSUNSET', 'CIPHER'))
