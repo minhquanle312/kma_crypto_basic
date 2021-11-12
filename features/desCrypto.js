@@ -121,24 +121,28 @@ export const findKeyDES = key => {
     C1D1[23],
     C1D1[0],
     C1D1[4],
+
     C1D1[2],
     C1D1[27],
     C1D1[14],
     C1D1[5],
     C1D1[20],
     C1D1[9],
+
     C1D1[22],
     C1D1[18],
     C1D1[11],
     C1D1[3],
     C1D1[25],
     C1D1[7],
+
     C1D1[15],
     C1D1[6],
     C1D1[26],
     C1D1[19],
     C1D1[12],
     C1D1[1],
+
     C1D1[40],
     C1D1[51],
     C1D1[30],
@@ -179,8 +183,8 @@ export const findKeyDES = key => {
 
   let result = []
   for (let i = 0; i < k1.length; ) {
-    result.push(k1.slice(i, i + 7))
-    i += 7
+    result.push(k1.slice(i, i + 6))
+    i += 6
   }
 
   message += `k1 = ${result.join(' - ')}`
