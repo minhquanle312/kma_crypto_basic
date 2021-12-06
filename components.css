@@ -1,0 +1,24 @@
+/* *VIGENERE */
+table {
+  font-size: 1.8rem;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #aaa;
+  padding: 0.5rem 0.6rem;
+}
+
+tr th {
+  width: 50px;
+}
+
+td:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+td:nth-child(even) {
+  background-color: #e9ecef;
+}

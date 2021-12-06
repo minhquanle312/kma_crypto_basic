@@ -104,3 +104,16 @@ export const encodeStringArrayNumber = plaintext => {
   // .join('')
   return code
 }
+
+// * Chuyển 1 số sang Z26
+export const numberToZ26 = number => {
+  if (number > 25) return number % 26
+  if (number === -0) return 0
+  if (number >= 0 && number <= 25) return number
+
+  let result = number
+  do {
+    result = result + 26
+  } while (result < 0)
+  return result
+}

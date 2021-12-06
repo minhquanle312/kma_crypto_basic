@@ -1,0 +1,181 @@
+/* 
+- Spacing (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+- Font (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+*/
+
+/* *HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  padding: 0 1.6rem;
+  height: var(--header-height);
+  background-color: var(--primary-color);
+
+  z-index: 2;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  stroke: #111;
+  cursor: pointer;
+}
+
+/* *ARTICLE */
+article {
+  display: grid;
+  grid-template-columns: 30rem 1fr;
+
+  /* padding: 9.6rem 0; */
+  margin-top: var(--header-height);
+  height: 200px;
+}
+
+.nav {
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  padding: 3.6rem 3.6rem;
+  background-color: beige;
+
+  position: fixed;
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  width: 30rem;
+  transform: translateX(-30rem);
+
+  transition: all 0.2s;
+  overflow: scroll;
+  z-index: 2;
+}
+
+.nav.active {
+  /* display: flex; */
+  transform: translateX(0);
+}
+
+.nav__content.active .nav__icon {
+  transform: rotate(90deg);
+}
+
+.nav__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  user-select: none;
+
+  cursor: pointer;
+}
+
+.nav__icon {
+  width: 20px;
+  height: 20px;
+
+  transition: all 0.2s;
+}
+
+.nav__intro {
+  font-size: 2rem;
+}
+
+.nav__list {
+  list-style: none;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  padding-left: 20px;
+
+  transition: all 0.2s;
+
+  display: none;
+}
+
+.nav__item {
+  cursor: pointer;
+}
+
+.nav__list.active {
+  display: block;
+}
+
+.nav__link:link,
+.nav__link:visited {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* *CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9.6rem;
+
+  grid-column: 1 / -1;
+  /* grid-column: 2; */
+
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 9.6rem 3.6rem;
+
+  transition: all 0.2s;
+}
+
+.nav.active + .container {
+  grid-column: 2;
+}
+
+.section {
+  width: 100%;
+  padding: 4.8rem;
+  border: 2px solid #999;
+  border-radius: 16px;
+  box-shadow: 12px 12px 36px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+}
+
+.btn-group {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  margin-bottom: 3.2rem;
+}
+
+.section__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.2rem;
+  font-size: 2rem;
+}
+
+.section__btn {
+  background-color: #fff;
+  border: 4px solid var(--primary-color);
+}
+
+.section__btn.active {
+  background-color: var(--primary-color);
+  /* transform: scale(1.05); */
+}
+
+.section__result {
+  display: none;
+}
+
+.section__result.active {
+  display: block;
+}

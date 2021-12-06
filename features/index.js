@@ -9,7 +9,7 @@ export { findSRTinZ } from './findSRTinZ.js'
 export { primitiveRoot } from './primitiveRoot.js'
 export { encodeHill, decodeHill } from './hillCrypto.js'
 export { findKeyDES } from './desCrypto.js'
-export { encodeVigenere } from './vigenereCrypto.js'
+export { encodeVigenere, decodeVigenere } from './vigenereCrypto.js'
 
 // * IMPORT VÔ FILE NÀO CẦN UTILS RỒI XÓA MẤY CÁI KHÔNG CẦN THIẾT
 // import {
@@ -24,4 +24,5 @@ export { encodeVigenere } from './vigenereCrypto.js'
 //   decodeHill,
 // findKeyDES,
 // encodeVigenere,
+// decodeVigenere,
 // } from '../features/index.js'

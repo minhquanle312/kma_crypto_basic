@@ -78,9 +78,9 @@ export const encodeHill = (plaintext, key, isDecode = false) => {
     let decodeToChar = encodeToNumber[0].map(char => ALPHABET[char]).join('')
     encode.push(decodeToChar)
 
-    message += `\n'${wordArr[i]}' <=> (${plaintextMatrix[i].join(
-      ', '
-    )}) x k = (${encodeToNumber}) => ${decodeToChar}`
+    message += `\n'${wordArr[i]}' <=> (${plaintextMatrix[i].join(', ')}) x k${
+      isDecode ? '^(-1)' : ''
+    } = (${encodeToNumber}) => ${decodeToChar}`
   }
 
   return message + `\nBản ${isDecode ? 'mã' : 'rõ'} là: ${encode.join('')}`

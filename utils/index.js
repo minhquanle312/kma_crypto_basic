@@ -9,6 +9,7 @@ export {
   asciiToHex,
   hexToBin,
   encodeStringArrayNumber,
+  numberToZ26,
 } from './mathHandle.js'
 export {
   matDecompose,
@@ -55,5 +56,6 @@ export {
 //   hexToBin,
 //   primeNumbers,
 //   ALPHABET_CODE,
-// encodeStringArrayNumber,
+//   encodeStringArrayNumber,
+//   numberToZ26,
 // } from '../utils/index.js'

@@ -1,0 +1,79 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #444;
+  --text-bold: #333;
+
+  --primary-color: #75bbf5;
+  /* --secondary-color: #fcc419; */
+  --secondary-color: #ffe066;
+
+  --header-height: 74px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.btn {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: none;
+
+  border-radius: 50px;
+  cursor: pointer;
+
+  background-color: var(--secondary-color);
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.6rem;
+  font-size: 2rem;
+}
+
+.form .btn-submit {
+  font-size: 1.6rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 6px;
+  background-color: #51cf66;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form-group input {
+  outline: none;
+  font-size: 1.6rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+}
