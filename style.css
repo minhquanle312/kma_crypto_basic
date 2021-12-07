@@ -42,7 +42,9 @@ article {
   display: flex;
   /* display: none; */
   flex-direction: column;
-  padding: 3.6rem 3.6rem;
+  gap: 1rem;
+
+  padding: 3.6rem 2rem;
   background-color: beige;
 
   position: fixed;
@@ -101,6 +103,10 @@ article {
   cursor: pointer;
 }
 
+.nav__item:hover {
+  color: var(--primary-color);
+}
+
 .nav__list.active {
   display: block;
 }
@@ -133,11 +139,13 @@ article {
 }
 
 .section {
-  width: 100%;
+  width: 100rem;
   padding: 4.8rem;
   border: 2px solid #999;
   border-radius: 16px;
   box-shadow: 12px 12px 36px rgba(0, 0, 0, 0.1);
+
+  line-height: 1.5;
 
   position: relative;
 }

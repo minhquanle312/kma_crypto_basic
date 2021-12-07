@@ -148,7 +148,7 @@ btnSection4.addEventListener('click', function (e) {
 // console.log(calcEuler(616))
 
 // TODO:Căn nguyên thủy: primitive root => danh sách các căn nguyên thủy của p
-// console.log(primitiveRoot(19))
+console.log(primitiveRoot(19))
 
 // TODO:Tìm x trong miền Z[n]: tính nghịch đảo trong Z[n]
 // console.log(calcInverseZn(23, 100))

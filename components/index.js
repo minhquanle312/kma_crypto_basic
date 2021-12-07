@@ -1,3 +1,11 @@
+export {
+  renderGCD,
+  renderPrimeFactorization,
+  renderSRTinZ,
+  renderCongruenceEquation,
+  renderEuler,
+} from './math/index.js'
+
 export { renderEncodeVigenere, renderDecodeVigenere } from './crypto/index.js'
 
 export const renderBlock = (

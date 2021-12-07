@@ -1,6 +1,7 @@
 export { primeNumbers, ALPHABET_CODE, ALPHABET } from './constants.js'
 export {
   gcd,
+  primeFactorization,
   calcPrimeFactorization,
   numberPrimeFactorization,
   messagePrimeFactorization,

@@ -60,15 +60,5 @@ export const findSRTinZ = (a, b) => {
 
   arr1[i - 1][9] = arr1[i - 2][7] - arr1[i - 2][0] * arr1[i - 2][8]
 
-  let message = `
-    ${['q', 'r1', 'r2', 'r', 's1', 's2', 's', 't1', 't2', 't']
-      .map(item => String(item).padStart(4, ' ').padStart(4, ' '))
-      .join(' ')}
-    `
-  for (const i of arr1) {
-    message += `
-    ${i.map(item => String(item).padStart(4, ' ').padStart(4, ' ')).join(' ')}
-      `
-  }
-  return message + `r: ${r1}, s: ${s1}, t: ${t1}`
+  return { arr1, r1, s1, t1 }
 }

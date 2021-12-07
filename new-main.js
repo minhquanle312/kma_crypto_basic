@@ -7,6 +7,11 @@ import {
   renderBlock,
   renderEncodeVigenere,
   renderDecodeVigenere,
+  renderPrimeFactorization,
+  renderGCD,
+  renderSRTinZ,
+  renderCongruenceEquation,
+  renderEuler,
 } from './components/index.js'
 
 const loggerEncode2 = function (params) {
@@ -26,6 +31,81 @@ const loggerDecode3 = function (params) {
   console.log('decode logger 3')
 }
 
+// *RENDER MATH
+renderBlock(
+  'nav__list--math',
+  { 'greatest-common-divisor': 'Ước chung lớn nhất' },
+  {
+    gcd: {
+      text: 'Tìm ước chung lớn nhất',
+      input: {
+        number: 'Nhập các số cần tìm (VD: 1, 2, ...)',
+      },
+    },
+  },
+  renderGCD
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'prime-factorization': 'Phân tích thừa số nguyên tố' },
+  {
+    primeFactorization: {
+      text: 'Tìm thừa số nguyên tố',
+      input: {
+        number: 'Số cần tìm',
+      },
+    },
+  },
+  renderPrimeFactorization
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'find-srt': 'Tìm s, r, t của a, b trong Z' },
+  {
+    primeFactorization: {
+      text: 'Tìm s, r, t',
+      input: {
+        a: 'Nhập a',
+        b: 'Nhập b',
+      },
+    },
+  },
+  renderSRTinZ
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'congruence-equation': 'Phương trình đồng dư' },
+  {
+    primeFactorization: {
+      text: 'Phương trình đồng dư ax = b (mod n)',
+      input: {
+        a: 'Nhập a',
+        b: 'Nhập b',
+        n: 'Nhập n',
+      },
+    },
+  },
+  renderCongruenceEquation
+)
+
+renderBlock(
+  'nav__list--math',
+  { euler: 'Tính Euler' },
+  {
+    primeFactorization: {
+      text: 'Tính Euler',
+      input: {
+        a: 'Nhập a',
+      },
+    },
+  },
+  renderEuler
+)
+
+// *Render crypto
 renderBlock(
   'nav__list--crypto',
   { 'crypto-vigenere': 'Mật mã Vigenere' },
@@ -50,7 +130,7 @@ renderBlock(
 )
 
 renderBlock(
-  'nav__list--math',
+  'nav__list--crypto',
   { 'crypto-hill': 'Mật mã Hill' },
   {
     encode: {
@@ -73,7 +153,7 @@ renderBlock(
 )
 
 renderBlock(
-  'nav__list--math',
+  'nav__list--crypto',
   { 'crypto-des': 'Mật mã DES' },
   {
     encode: {

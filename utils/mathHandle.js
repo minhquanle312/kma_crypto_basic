@@ -8,6 +8,27 @@ export const gcd = (...arr) => {
   return [...arr].reduce((a, b) => _gcd(a, b))
 }
 
+// ?NEW: Phân tích thừa số nguyên tố trả về Object Ex: 616 => {2: 3, 7: 1, 11: 1}
+export const primeFactorization = number => {
+  const result = {}
+
+  let i = 0
+  for (const primeNumber of primeNumbers) {
+    while (number % primeNumber === 0) {
+      number = number / primeNumber
+      i++
+    }
+    if (i !== 0) Object.assign(result, { [primeNumber]: i })
+    i = 0
+
+    if (number === 1) break
+  }
+
+  return result
+}
+
+// !Bên dưới là hàm cũ, đang update các hàm còn sử dụng sau đó xóa
+
 // *Phân tích thừa số nguyên tố: trả về mảng là các số mũ ở vị trí số nguyên tố tương ứng trong mảng Prime Number
 export const calcPrimeFactorization = number => {
   const result = []
@@ -47,6 +68,7 @@ export const messagePrimeFactorization = arrayPrimeFactorization => {
   })
   return message
 }
+// !Bên trên là hàm thừa số nguyên tố cũ
 
 // *Input(a, b) <=> a^b EX: 5^41 = 5^32x5^8x5^1
 export const messageExponential = (a, b) => {
