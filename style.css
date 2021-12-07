@@ -55,7 +55,7 @@ article {
   transform: translateX(-30rem);
 
   transition: all 0.2s;
-  overflow: scroll;
+  overflow-y: scroll;
   z-index: 2;
 }
 
