@@ -131,7 +131,7 @@ renderBlock(
 
 renderBlock(
   'nav__list--crypto',
-  { 'crypto-hill': 'Mật mã Hill' },
+  { 'crypto-hill': 'Mật mã Hill (💥đang phát triển)' },
   {
     encode: {
       text: 'Mã hóa Hill',
@@ -154,7 +154,7 @@ renderBlock(
 
 renderBlock(
   'nav__list--crypto',
-  { 'crypto-des': 'Mật mã DES' },
+  { 'crypto-des': 'Mật mã DES (💥đang phát triển)' },
   {
     encode: {
       text: 'Mã hóa DES',
