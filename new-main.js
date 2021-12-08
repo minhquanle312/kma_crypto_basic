@@ -12,6 +12,10 @@ import {
   renderSRTinZ,
   renderCongruenceEquation,
   renderEuler,
+  renderPrimitiveRoot,
+  renderDiscreteLogarithm,
+  renderInverseZn,
+  renderExponentialZn,
 } from './components/index.js'
 
 const loggerEncode2 = function (params) {
@@ -93,9 +97,9 @@ renderBlock(
 
 renderBlock(
   'nav__list--math',
-  { euler: 'Tính Euler' },
+  { 'calc-euler': 'Tính Euler' },
   {
-    primeFactorization: {
+    euler: {
       text: 'Tính Euler',
       input: {
         a: 'Nhập a',
@@ -103,6 +107,59 @@ renderBlock(
     },
   },
   renderEuler
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'primitive-root': 'Tìm căn nguyên thủy' },
+  {
+    primitiveRoot: {
+      text: 'Căn nguyên thủy của p',
+      input: {
+        p: 'Nhập p',
+      },
+    },
+    discreteLogarithm: {
+      text: 'Logarithm rời rạc trong Z[p]',
+      input: {
+        r: 'Nhập r (r là căn nguyên thủy của p)',
+        p: 'Nhập p',
+      },
+    },
+  },
+  renderPrimitiveRoot,
+  renderDiscreteLogarithm
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'inverse-Zn': 'Tìm nghịch đảo trong Z<sub>n</sub>' },
+  {
+    inverseZn: {
+      text: 'Tìm nghịch đảo x = b<sup>-1</sup> trong Z<sub>n</sub>',
+      input: {
+        b: 'Nhập b',
+        n: 'Nhập n',
+      },
+    },
+  },
+  renderInverseZn
+)
+
+renderBlock(
+  'nav__list--math',
+  { 'exponential-Zn': 'Tính lũy thừa trong Z<sub>n</sub>' },
+  {
+    exponentialZn: {
+      text: 'Tính a<sup>k</sup> mod n',
+      input: {
+        a: 'Nhập a',
+        k: 'Nhập k',
+        n: 'Nhập n',
+      },
+    },
+  },
+  renderExponentialZn
 )
 
 // *Render crypto

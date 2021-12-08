@@ -6,7 +6,7 @@ export {
 } from './congruenceEquation.js'
 export { exponentialZn } from './exponentialZn.js'
 export { findSRTinZ } from './findSRTinZ.js'
-export { primitiveRoot } from './primitiveRoot.js'
+export { primitiveRoot, discreteLogarithm } from './primitiveRoot.js'
 export { encodeHill, decodeHill } from './hillCrypto.js'
 export { findKeyDES } from './desCrypto.js'
 export { encodeVigenere, decodeVigenere } from './vigenereCrypto.js'

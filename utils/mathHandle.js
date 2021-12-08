@@ -70,6 +70,7 @@ export const messagePrimeFactorization = arrayPrimeFactorization => {
 }
 // !Bên trên là hàm thừa số nguyên tố cũ
 
+// !Có thể bỏ hàm này sau khi viết xong exponentialZn() hoặc chuyển sang hàm render
 // *Input(a, b) <=> a^b EX: 5^41 = 5^32x5^8x5^1
 export const messageExponential = (a, b) => {
   const arr = b
@@ -128,14 +129,14 @@ export const encodeStringArrayNumber = plaintext => {
 }
 
 // * Chuyển 1 số sang Z26
-export const numberToZ26 = number => {
-  if (number > 25) return number % 26
+export const numberToZ26 = (number, n = 26) => {
+  if (number > n - 1) return number % n
   if (number === -0) return 0
-  if (number >= 0 && number <= 25) return number
+  if (number >= 0 && number <= n - 1) return number
 
   let result = number
   do {
-    result = result + 26
+    result = result + n
   } while (result < 0)
   return result
 }

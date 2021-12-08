@@ -4,6 +4,10 @@ export {
   renderSRTinZ,
   renderCongruenceEquation,
   renderEuler,
+  renderPrimitiveRoot,
+  renderDiscreteLogarithm,
+  renderInverseZn,
+  renderExponentialZn,
 } from './math/index.js'
 
 export { renderEncodeVigenere, renderDecodeVigenere } from './crypto/index.js'

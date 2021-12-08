@@ -148,13 +148,14 @@ btnSection4.addEventListener('click', function (e) {
 // console.log(calcEuler(616))
 
 // TODO:Căn nguyên thủy: primitive root => danh sách các căn nguyên thủy của p
-console.log(primitiveRoot(19))
+// console.log(primitiveRoot(19))
 
 // TODO:Tìm x trong miền Z[n]: tính nghịch đảo trong Z[n]
 // console.log(calcInverseZn(23, 100))
 
 // TODO:Tính lũy thừa trong Z[n]: (a, k, n) input: a^k mod n
 // console.log(exponentialZn(9, 73, 13))
+// console.log(exponentialZn(5, 41, 9))
 
 // ***************PHẦN MẬT MÃ
 // TODO: Mã hóa Hill
