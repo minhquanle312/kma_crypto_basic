@@ -67,14 +67,3 @@ container.addEventListener('click', function (e) {
   })
   resultClicked.classList.add('active')
 })
-
-// TODO: handle submit button
-// container.addEventListener('click', function (e) {
-//   if (!e.target.classList.contains('btn-submit')) return
-
-//   const btn = e.target
-//   const contentBlock = btn
-//     .closest('.section__result')
-//     .querySelector('.section__content')
-//   console.log(contentBlock)
-// })

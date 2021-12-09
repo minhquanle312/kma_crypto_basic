@@ -10,7 +10,12 @@ export {
   renderExponentialZn,
 } from './math/index.js'
 
-export { renderEncodeVigenere, renderDecodeVigenere } from './crypto/index.js'
+export {
+  renderEncodeVigenere,
+  renderDecodeVigenere,
+  renderEncodeHill,
+  renderDecodeHill,
+} from './crypto/index.js'
 
 export const renderBlock = (
   classNameList,
@@ -140,12 +145,10 @@ export const renderBlock = (
       }
 
       if (inputValues.includes('')) return
-      // console.log(inputValues)
 
       optionKeys.forEach((option, index) => {
         if (!btnId.includes(option)) return
 
-        // console.log(option, index)
         const result = callbacks[index](...inputValues)
         contentEl.innerHTML = result
       })

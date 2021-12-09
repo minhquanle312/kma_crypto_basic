@@ -14,12 +14,12 @@ export const renderCongruenceEquation = (a, b, n) => {
   const stringList = []
   for (let i = 0; i < d; i++) {
     stringList.push(`
-    x = ${x} + ${i}*(<sup>${n}</sup>&frasl;<sub>${d}</sub>) (mod ${n}) <=> x = ${
+    x = ${x} + ${i}&times;(<sup>${n}</sup>&frasl;<sub>${d}</sub>) (mod ${n}) &hArr; x = ${
       (x + i * (n / d)) % n
     } (mod ${n})
     `)
   }
-  const html = `<div>
+  return `<div>
     <p>d = (a, n) = (${a}, ${n}) = ${d} | ${b} &rarr; phương trình có ${d} nghiệm
     <p>Phần dư đầy đủ không âm nhỏ nhất của modulo ${n} là:</p>
     ${arr.join(', ')}
@@ -27,6 +27,4 @@ export const renderCongruenceEquation = (a, b, n) => {
     <p>${stringList.map(item => item).join('<br>')}</p>
   </div>
   `
-
-  return html
 }

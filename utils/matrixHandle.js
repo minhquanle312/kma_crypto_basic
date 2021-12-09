@@ -1,5 +1,7 @@
 'use strict'
 
+import { numberToZ26, ALPHABET } from './index.js'
+
 // !WARNING: KHÔNG SỬA KHU VỰC BÊN DƯỚI
 // *Source: https://jamesmccaffrey.wordpress.com/2020/04/24/matrix-inverse-with-javascript/
 export function reduce(lum, b) {
@@ -228,13 +230,16 @@ export const multiplyMatrices = (A, B) =>
 
 // *Chuyển ma trận về Z[n] mặc định n = 26
 export const matrixInZn = (matrix, n = 26) => {
-  const result = []
-  for (const row of matrix) {
-    result.push(
-      row.map(item => (item >= 0 ? item % n : 26 - (Math.abs(item) % 26)))
-    )
-  }
-  return result
+  // const result = []
+  // for (const row of matrix) {
+  //   result.push(row.map(item => numberToZ26(item)))
+  // }
+  // return result
+  return matrix.map(row => row.map(item => numberToZ26(item, n)))
+}
+
+export const matrixInAlphabet = matrix => {
+  return matrix.map(row => row.map(item => ALPHABET[item]))
 }
 
 // console.table(matrixInZn([[-0, -939]]))

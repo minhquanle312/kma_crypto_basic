@@ -1,18 +1,13 @@
 'use strict'
 
-import {
-  ALPHABET,
-  encodeStringArrayNumber,
-  numberToZ26,
-} from '../utils/index.js'
+import { ALPHABET, encodeAlphabet, numberToZ26 } from '../utils/index.js'
 
 export const encodeVigenere = (plaintext, key, isDecode = false) => {
-  let result = {}
   plaintext.toUpperCase()
   key.toUpperCase()
 
-  const plaintextArr = encodeStringArrayNumber(plaintext)
-  const keyArr = encodeStringArrayNumber(key)
+  const plaintextArr = encodeAlphabet(plaintext)
+  const keyArr = encodeAlphabet(key)
 
   // Số lần lặp lại của khóa
   const num = Math.ceil(plaintextArr.length / keyArr.length)
@@ -34,15 +29,13 @@ export const encodeVigenere = (plaintext, key, isDecode = false) => {
     encode.push(ALPHABET[item])
   }
 
-  result = {
+  return {
     plaintext: plaintextArr,
     key: keyArrFull,
     encodeNumber: encodeArr,
     char: encode,
     encode: encode.join(''),
   }
-
-  return result
 }
 
 export const decodeVigenere = (cyphertext, key) =>

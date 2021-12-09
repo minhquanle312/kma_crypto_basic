@@ -6,11 +6,9 @@ export const renderPrimeFactorization = number => {
   const keys = Object.keys(result)
   const values = Object.values(result)
 
-  const html = `<div>
+  return `<div>
   ${number} = ${values
     .map((value, i) => `${keys[i]}${value !== 1 ? `<sup>${value}</sup>` : ''}`)
     .join('&times;')}</div>
   `
-
-  return html
 }

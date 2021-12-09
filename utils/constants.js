@@ -8,6 +8,11 @@ export const primeNumbers = [
   401, 409, 419, 431, 443, 449, 461, 467, 479, 487, 491, 499, 503,
 ]
 
+// *16 số chính phương đầu tiên
+export const squareNumbers = [
+  0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225,
+]
+
 export const ALPHABET_CODE = {
   0: 'A',
   1: 'B',

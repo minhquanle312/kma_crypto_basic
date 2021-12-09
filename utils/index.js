@@ -1,15 +1,16 @@
-export { primeNumbers, ALPHABET_CODE, ALPHABET } from './constants.js'
+export {
+  primeNumbers,
+  squareNumbers,
+  ALPHABET_CODE,
+  ALPHABET,
+} from './constants.js'
 export {
   gcd,
   primeFactorization,
-  calcPrimeFactorization,
-  numberPrimeFactorization,
-  messagePrimeFactorization,
-  messageExponential,
   encodeChar,
   asciiToHex,
   hexToBin,
-  encodeStringArrayNumber,
+  encodeAlphabet,
   numberToZ26,
 } from './mathHandle.js'
 export {
@@ -28,7 +29,10 @@ export {
   matInverse,
   reduce,
   det,
+  matrixInAlphabet,
 } from './matrixHandle.js'
+
+export { arrayToMatrix } from './helper.js'
 
 // * IMPORT VÔ FILE NÀO CẦN UTILS RỒI XÓA MẤY CÁI KHÔNG CẦN THIẾT
 // import {

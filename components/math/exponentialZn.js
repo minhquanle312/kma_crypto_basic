@@ -1,9 +1,11 @@
 import { exponentialZn } from '../../features/exponentialZn.js'
 
 export const renderExponentialZn = (a, k, n) => {
-  const result = exponentialZn(Number(a), Number(k), Number(n))
+  k = Number(k)
+  if (k === 0) return `<div>${a}<sup>${k}</sup> mod ${n} = ${a}</div>`
+  if (a < 0 || a > n) return `<div style="color: red;">a không hợp lệ</div>`
 
-  const { kiList, AList, b } = result
+  const { kiList, AList, b } = exponentialZn(Number(a), Number(k), Number(n))
 
   const exponential = `${a}<sup>${k}</sup> = ${kiList
     .slice(0, -2)
@@ -11,7 +13,7 @@ export const renderExponentialZn = (a, k, n) => {
     .join('')
     .slice(0, -7)}`
 
-  const html = `<div>
+  return `<div>
   Ta có: ${k} = ${Number(k).toString(2)} &rarr; ${exponential}
     <br>
     ${AList.slice(0, -2)
@@ -28,8 +30,4 @@ export const renderExponentialZn = (a, k, n) => {
     &rArr; ${exponential} = ${b}
     </div>
     `
-
-  return html
 }
-
-// <br>${a}<sup>1</sup> mod ${n} = ${a} mod ${n} = ${a}<br>

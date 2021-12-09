@@ -43,6 +43,7 @@ export const renderPrimitiveRoot = p => {
   </div>
   `
 }
+
 //  *Logarithm rời rạc trong Z[n]
 export const renderDiscreteLogarithm = (r, p) => {
   const result = discreteLogarithm(r, p)

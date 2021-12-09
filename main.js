@@ -34,10 +34,10 @@ import {
   reduce,
   det,
   gcd,
-  calcPrimeFactorization,
-  numberPrimeFactorization,
-  messagePrimeFactorization,
-  messageExponential,
+  /* calcPrimeFactorization, */
+  /* numberPrimeFactorization, */
+  /* messagePrimeFactorization, */
+  /* messageExponential, */
   encodeChar,
   asciiToHex,
   hexToBin,
@@ -160,8 +160,8 @@ btnSection4.addEventListener('click', function (e) {
 // ***************PHẦN MẬT MÃ
 // TODO: Mã hóa Hill
 // console.log(decodeHill('eodvvd', 'rrfvsvcct'))
-// console.log(decodeHill('FWTVSVJXBKNKGVAEDMWXOGJUGCD', 'neverquit'))
-// console.log(encodeHill('hocvienhocvienmatmahochimin', 'neverquit'))
+console.log(decodeHill('FWTVSVJXBKNKGVAEDMWXOGJUGCD', 'neverquit'))
+console.log(encodeHill('hocvienhocvienmatmahochimin', 'neverquit'))
 
 // TODO: DES
 // console.log(findKeyDES('AT150739'))

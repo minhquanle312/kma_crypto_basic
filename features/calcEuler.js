@@ -1,10 +1,6 @@
 'use strict'
 
-import {
-  primeFactorization,
-  calcPrimeFactorization,
-  messagePrimeFactorization,
-} from '../utils/mathHandle.js'
+import { primeFactorization } from '../utils/mathHandle.js'
 
 // *Tính ø Euler
 export const calcEuler = a => {

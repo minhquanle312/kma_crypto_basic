@@ -8,7 +8,7 @@ export const gcd = (...arr) => {
   return [...arr].reduce((a, b) => _gcd(a, b))
 }
 
-// ?NEW: Phân tích thừa số nguyên tố trả về Object Ex: 616 => {2: 3, 7: 1, 11: 1}
+// *Phân tích thừa số nguyên tố trả về Object Ex: 616 => {2: 3, 7: 1, 11: 1}
 export const primeFactorization = number => {
   const result = {}
 
@@ -25,69 +25,6 @@ export const primeFactorization = number => {
   }
 
   return result
-}
-
-// !Bên dưới là hàm cũ, đang update các hàm còn sử dụng sau đó xóa
-
-// *Phân tích thừa số nguyên tố: trả về mảng là các số mũ ở vị trí số nguyên tố tương ứng trong mảng Prime Number
-export const calcPrimeFactorization = number => {
-  const result = []
-  let i = 0
-  for (const item of primeNumbers) {
-    while (number % item === 0) {
-      number = number / item
-      i++
-    }
-    result.push(i)
-    i = 0
-
-    if (number === 1) break
-  }
-  return result
-}
-
-// *Phân tích thừa số nguyên tố (vd: 200 = 2^3x5^2 => return [2, 5]): trả về mảng là các số nguyên tố
-export const numberPrimeFactorization = arrayPrimeFactorization => {
-  const result = []
-  arrayPrimeFactorization.forEach(
-    (number, i) => number !== 0 && result.push(primeNumbers[i])
-  )
-  return result
-}
-
-// *Phân tích thừa số nguyên tố thành chuỗi: nhận vào mảng calcPrimeFactorization return chuỗi
-export const messagePrimeFactorization = arrayPrimeFactorization => {
-  let message = ' '
-  arrayPrimeFactorization.forEach((number, i) => {
-    if (number !== 0) {
-      message =
-        message +
-        `${message.slice(-1) === ' ' ? '' : 'x'}` +
-        `${primeNumbers[i]}${number === 1 ? '' : `^${number}`}`
-    }
-  })
-  return message
-}
-// !Bên trên là hàm thừa số nguyên tố cũ
-
-// !Có thể bỏ hàm này sau khi viết xong exponentialZn() hoặc chuyển sang hàm render
-// *Input(a, b) <=> a^b EX: 5^41 = 5^32x5^8x5^1
-export const messageExponential = (a, b) => {
-  const arr = b
-    .toString(2)
-    .split('')
-    .reverse()
-    .map(item => Number(item))
-
-  let message = `${a}^${b} = `
-
-  arr.forEach((num, i) => {
-    if (arr[i] !== 0)
-      message =
-        message + `${message.slice(-1) === ' ' ? '' : 'x'}` + `${a}^${2 ** i}`
-  })
-
-  return message
 }
 
 // * Chuyển từ ký tự sang số trong miền Z26
@@ -119,17 +56,17 @@ export const hexToBin = hex => {
 }
 
 // * Chuyển từ chuỗi ký tự sang mảng số trong miền Z26
-export const encodeStringArrayNumber = plaintext => {
+export const encodeAlphabet = plaintext => {
   const code = plaintext
     .toUpperCase()
     .split('')
     .map(val => ALPHABET.indexOf(val))
-  // .join('')
   return code
 }
 
 // * Chuyển 1 số sang Z26
 export const numberToZ26 = (number, n = 26) => {
+  number = Number(number)
   if (number > n - 1) return number % n
   if (number === -0) return 0
   if (number >= 0 && number <= n - 1) return number

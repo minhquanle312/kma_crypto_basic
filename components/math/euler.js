@@ -11,12 +11,10 @@ export const renderEuler = number => {
     stringList.push(`(1 - <sup>1</sup>&frasl;<sub>${key}</sub>)`)
   }
 
-  const html = `<div>
+  return `<div>
   <p>${prime}</p> &rarr; &empty;(${number}) = ${number}${stringList
     .map(item => item)
     .join('')} = ${result}
   </div>
   `
-
-  return html
 }
