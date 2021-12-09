@@ -15,10 +15,36 @@ tr th {
   width: 50px;
 }
 
-td:nth-child(odd) {
-  background-color: #f8f9fa;
+tr:nth-child(odd) {
+  background-color: #a5d8ff;
 }
 
-td:nth-child(even) {
-  background-color: #e9ecef;
+tr:nth-child(even) {
+  background-color: #ffd8a8;
 }
+
+#section-crypto-des .key-binary span:nth-child(even) {
+  color: #228be6;
+}
+
+#section-crypto-des .key-binary span:nth-child(odd) {
+  color: #fd7e14;
+}
+
+#section-crypto-des .table-group {
+  display: flex;
+  gap: 4rem;
+}
+
+#section-crypto-des .table-group td {
+  width: 50px;
+  /* background-color: white; */
+}
+
+/* #section-crypto-des .table-group tr:nth-child(even) {
+  background-color: #74c0fc;
+}
+
+#section-crypto-des .table-group tr:nth-child(odd) {
+  background-color: #ffc078;
+} */

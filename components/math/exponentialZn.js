@@ -3,6 +3,8 @@ import { exponentialZn } from '../../features/exponentialZn.js'
 export const renderExponentialZn = (a, k, n) => {
   k = Number(k)
   if (k === 0) return `<div>${a}<sup>${k}</sup> mod ${n} = ${a}</div>`
+  a = Number(a)
+  n = Number(n)
   if (a < 0 || a > n) return `<div style="color: red;">a không hợp lệ</div>`
 
   const { kiList, AList, b } = exponentialZn(Number(a), Number(k), Number(n))

@@ -32,7 +32,7 @@ export {
   matrixInAlphabet,
 } from './matrixHandle.js'
 
-export { arrayToMatrix } from './helper.js'
+export { arrayToMatrix, arrayToMatrixMn } from './helper.js'
 
 // * IMPORT VÔ FILE NÀO CẦN UTILS RỒI XÓA MẤY CÁI KHÔNG CẦN THIẾT
 // import {

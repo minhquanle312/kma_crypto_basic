@@ -5,7 +5,7 @@ import { asciiToHex, hexToBin } from '../utils/index.js'
 
 export const findKeyDES = key => {
   let hexString = asciiToHex(key)
-  let message = `Khóa k sau khi chuyển sang Hexa k = ${hexString}`
+  // let message = `Khóa k sau khi chuyển sang Hexa k = ${hexString}`
 
   const wordArr = []
   for (let i = 0; i < hexString.length; ) {
@@ -26,7 +26,7 @@ export const findKeyDES = key => {
 
   // k = k.join(' - ')
   const b = binString
-  message += `\nKhóa k sau khi chuyển sang nhị phân k = \n${k.join(' - ')}\n`
+  // message += `\nKhóa k sau khi chuyển sang nhị phân k = \n${k.join(' - ')}\n`
 
   const PC1 = [
     b[56],
@@ -89,13 +89,13 @@ export const findKeyDES = key => {
 
   let kPlus = ''
 
-  message += '\nBảng PC1: \n'
+  // message += '\nBảng PC1: \n'
   for (let i = 0; i < 56; ) {
     for (let j = i; j < i + 7; j++) {
-      message += `${PC1[j]}   `
+      // message += `${PC1[j]}   `
       kPlus += PC1[j]
     }
-    message += '\n'
+    // message += '\n'
     i += 7
   }
 
@@ -171,13 +171,13 @@ export const findKeyDES = key => {
 
   let k1 = ''
 
-  message += '\nBảng PC2:\n'
+  // message += '\nBảng PC2:\n'
   for (let i = 0; i < 48; ) {
     for (let j = i; j < i + 6; j++) {
-      message += `${PC2[j]}   `
+      // message += `${PC2[j]}   `
       k1 += PC2[j]
     }
-    message += '\n'
+    // message += '\n'
     i += 6
   }
 
@@ -187,7 +187,7 @@ export const findKeyDES = key => {
     i += 6
   }
 
-  message += `k1 = ${result.join(' - ')}`
+  // message += `k1 = ${result.join(' - ')}`
 
-  return message
+  return { hexString, k, PC1, PC2, k1 }
 }

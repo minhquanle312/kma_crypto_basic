@@ -4,161 +4,90 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/base.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/responsive.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>BASIC CRYPTO</title>
+
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="components.css" />
+    <title>Cryptography</title>
   </head>
   <body>
-    <div class="app">
-      <header class="header">
-        <div class="header__navbar">
-          <i class="fas fa-bars header__icon"></i>
-          <a
-            href="./new-ui.html"
-            target="_"
-            style="font-size: 20px; color: white"
-            >NEW UI</a
-          >
-        </div>
-        <div class="header-content">
-          <h1>GIẢI BÀI TẬP LÝ THUYẾT MẬT MÃ</h1>
-          <h2>
-            Trả về template string hết rồi nên lười render HTML, nhập input rồi
-            mở dev tool coi kết quả
-          </h2>
-        </div>
-      </header>
-      <div class="sidebar-toggle">
-        <i class="fas fa-bars header__icon"></i>
-        <h2>Sau này để các loại bài tập trong đây</h2>
-      </div>
-      <div class="container">
-        <section class="section-1">
-          <h2>HILL CRYPTOGRAPHY ENCODE</h2>
-          <div class="section-1__form">
-            <div class="form-group">
-              <label for="hill-encode-plaintext" class="form-label"
-                >Bản rõ</label
-              >
-              <input
-                id="hill-encode-plaintext"
-                name="hill-encode-plaintext"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-              <label for="hill-encode-key" class="form-label">Khóa</label>
-              <input
-                id="hill-encode-key"
-                name="hill-encode-key"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <button class="btn section-1__btn">Submit</button>
-          </div>
-          <div class="section-1__answer"></div>
-        </section>
-        <section class="section-1">
-          <h2>HILL CRYPTOGRAPHY DECODE</h2>
-          <div class="section-1__form">
-            <div class="form-group">
-              <label for="hill-decode-plaintext" class="form-label"
-                >Bản mã</label
-              >
-              <input
-                id="hill-decode-plaintext"
-                name="hill-decode-plaintext"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-              <label for="hill-decode-key" class="form-label">Khóa</label>
-              <input
-                id="hill-decode-key"
-                name="hill-decode-key"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <button class="btn section-2__btn">Submit</button>
-          </div>
-          <div class="section-1__answer"></div>
-        </section>
-        <section class="section-1">
-          <h2>VIGENERE CRYPTOGRAPHY ENCODE</h2>
-          <div class="section-1__form">
-            <div class="form-group">
-              <label for="vigenere-encode-plaintext" class="form-label"
-                >Bản rõ</label
-              >
-              <input
-                id="vigenere-encode-plaintext"
-                name="vigenere-encode-plaintext"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-              <label for="vigenere-encode-key" class="form-label">Khóa</label>
-              <input
-                id="vigenere-encode-key"
-                name="vigenere-encode-key"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <button class="btn section-3__btn">Submit</button>
-          </div>
-          <div class="section-1__answer"></div>
-        </section>
-        <section class="section-1">
-          <h2>TÌM KHÓA K1 MÃ DES</h2>
-          <div class="section-1__form">
-            <div class="form-group">
-              <label for="des-key" class="form-label"
-                >Khóa (CẦN NHẬP ĐÚNG CHỮ HOA THƯỜNG)</label
-              >
-              <input
-                id="des-key"
-                name="des-key"
-                type="text"
-                class="form-control"
-              />
-              <span class="form-message"></span>
-            </div>
-            <button class="btn section-4__btn">Submit</button>
-          </div>
-          <div class="section-1__answer"></div>
-        </section>
-      </div>
-    </div>
-  </body>
+    <header class="header">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="header-icon"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </header>
 
-  <script type="module" src="main.js"></script>
+    <article>
+      <nav class="nav">
+        <div class="nav__content active">
+          <div class="nav__header">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="nav__icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+            <p class="nav__intro">Bài tập toán</p>
+          </div>
+          <ul class="nav__list nav__list--math active"></ul>
+        </div>
+
+        <div class="nav__content active">
+          <div class="nav__header">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="nav__icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+            <p class="nav__intro">Bài tập mật mã</p>
+          </div>
+          <ul class="nav__list nav__list--crypto active">
+            <!-- <li class="nav__item">
+              <a class="nav__link section-crypto-hill">Mật mã HILL</a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container"></div>
+    </article>
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="handleUI.js"></script>
+  </body>
 </html>

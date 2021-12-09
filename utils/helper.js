@@ -19,3 +19,16 @@ export const arrayToMatrix = (arr, degree = 0) => {
 
   return matrix
 }
+
+// *mảng thành ma trận n cột
+export const arrayToMatrixMn = (arr, n) => {
+  const matrix = []
+  const length = arr.length
+
+  for (let i = 0; i < length; ) {
+    matrix.push(arr.slice(i, i + n))
+    i += n
+  }
+
+  return matrix
+}

@@ -15,6 +15,7 @@ export {
   renderDecodeVigenere,
   renderEncodeHill,
   renderDecodeHill,
+  renderK1DES,
 } from './crypto/index.js'
 
 export const renderBlock = (
