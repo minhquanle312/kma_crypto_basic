@@ -3,9 +3,15 @@
 import { asciiToHex, hexToBin } from '../utils/index.js'
 // * Mã hóa DES
 
+// const hexa = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F]
+
 export const findKeyDES = key => {
+  // const _key = key
+
   let hexString = asciiToHex(key)
   // let message = `Khóa k sau khi chuyển sang Hexa k = ${hexString}`
+
+  if (key.length === 16) hexString = key
 
   const wordArr = []
   for (let i = 0; i < hexString.length; ) {
@@ -108,11 +114,105 @@ export const findKeyDES = key => {
   const C0 = kPlus.slice(0, 28)
   const D0 = kPlus.slice(28)
 
+  // *Số bit dịch vòng trái qua mỗi vòng (index = 0 -> vòng 1)
+  const shiftLeft = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1]
+
   // Dịch vòng trái 1 đơn vị được C1, D1
   const C1 = C0.slice(1).concat(C0[0])
   const D1 = D0.slice(1).concat(D0[0])
 
+  const Cn = []
+  const Dn = []
+
+  shiftLeft.forEach((item, i) => {
+    if (i === 0) {
+      Cn.push(C0.slice(1).concat(C0[0]))
+      Dn.push(D0.slice(1).concat(D0[0]))
+    } else {
+      if (item === 1) {
+        Cn.push(Cn[i - 1].slice(item).concat(Cn[i - 1][0]))
+        Dn.push(Dn[i - 1].slice(item).concat(Dn[i - 1][0]))
+      } else {
+        Cn.push(Cn[i - 1].slice(item).concat(Cn[i - 1][0], Cn[i - 1][1]))
+        Dn.push(Dn[i - 1].slice(item).concat(Dn[i - 1][0], Dn[i - 1][1]))
+      }
+    }
+  })
+
+  Cn.unshift(C0)
+  Dn.unshift(D0)
+
   const C1D1 = C1.concat(D1)
+
+  const CnDn = []
+  Cn.forEach((_, i) => {
+    CnDn.push(Cn[i].concat(Dn[i]))
+  })
+
+  // *Bảng PC2 của kn
+  const PC2n = []
+  CnDn.forEach((item, i) => {
+    PC2n.push([
+      CnDn[i][13],
+      CnDn[i][16],
+      CnDn[i][10],
+      CnDn[i][23],
+      CnDn[i][0],
+      CnDn[i][4],
+
+      CnDn[i][2],
+      CnDn[i][27],
+      CnDn[i][14],
+      CnDn[i][5],
+      CnDn[i][20],
+      CnDn[i][9],
+
+      CnDn[i][22],
+      CnDn[i][18],
+      CnDn[i][11],
+      CnDn[i][3],
+      CnDn[i][25],
+      CnDn[i][7],
+
+      CnDn[i][15],
+      CnDn[i][6],
+      CnDn[i][26],
+      CnDn[i][19],
+      CnDn[i][12],
+      CnDn[i][1],
+
+      CnDn[i][40],
+      CnDn[i][51],
+      CnDn[i][30],
+      CnDn[i][36],
+      CnDn[i][47],
+      CnDn[i][54],
+      CnDn[i][29],
+      CnDn[i][39],
+      CnDn[i][50],
+      CnDn[i][44],
+      CnDn[i][32],
+      CnDn[i][47],
+      CnDn[i][43],
+      CnDn[i][48],
+      CnDn[i][38],
+      CnDn[i][55],
+      CnDn[i][33],
+      CnDn[i][52],
+      CnDn[i][45],
+      CnDn[i][41],
+      CnDn[i][49],
+      CnDn[i][35],
+      CnDn[i][28],
+      CnDn[i][31],
+    ])
+  })
+
+  // *Khóa kn
+  const kn = []
+  PC2n.forEach((item, i) => {
+    kn.push(item.join(''))
+  })
 
   const PC2 = [
     C1D1[13],
@@ -166,20 +266,10 @@ export const findKeyDES = key => {
     C1D1[49],
     C1D1[35],
     C1D1[28],
-    C1D1[32],
+    C1D1[31],
   ]
 
-  let k1 = ''
-
-  // message += '\nBảng PC2:\n'
-  for (let i = 0; i < 48; ) {
-    for (let j = i; j < i + 6; j++) {
-      // message += `${PC2[j]}   `
-      k1 += PC2[j]
-    }
-    // message += '\n'
-    i += 6
-  }
+  const k1 = PC2.join('')
 
   let result = []
   for (let i = 0; i < k1.length; ) {
@@ -187,7 +277,5 @@ export const findKeyDES = key => {
     i += 6
   }
 
-  // message += `k1 = ${result.join(' - ')}`
-
-  return { hexString, k, PC1, PC2, k1 }
+  return { hexString, k, PC1, kPlusArray, Cn, Dn, CnDn, PC2n, kn, PC2, k1 }
 }

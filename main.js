@@ -193,9 +193,10 @@ renderBlock(
   { 'crypto-des': 'Mật mã DES' },
   {
     k1: {
-      text: 'Tìm khóa K1',
+      text: 'Tìm khóa Kn',
       input: {
         key: 'Khóa (có phân biệt chữ hoa, thường)',
+        n: 'Nhập n (1 &le; n &le; 16)',
       },
     },
   },

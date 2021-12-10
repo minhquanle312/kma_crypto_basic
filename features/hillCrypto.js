@@ -61,6 +61,7 @@ export const encodeHill = (plaintext, key, isDecode = false) => {
       : encodeNumber.push(
           multiplyMatrices([plaintextMatrix[i]], keyMatrix).flat()
         )
+    // console.log(encodeNumber)
   }
 
   const encodeZ26 = matrixInZn(encodeNumber)

@@ -7,22 +7,27 @@ export const renderEncodeHill = (
   plaintext,
   key,
   isDecode = false,
-  decodeHtml
+  decodeHtml,
+  decodeKey
 ) => {
   const result = encodeHill(plaintext, key)
 
   const {
     success,
-    keyMatrix,
+    // keyMatrix,
     plaintextMatrix,
     encodeMatrix,
     encodeChar,
     encode,
   } = result
 
+  let { keyMatrix } = result
+
   if (success === false) {
     return `${result.errorMessage}`
   }
+
+  if (isDecode) keyMatrix = decodeKey
 
   const html = `<div>
     k = <table style="display: inline-table;">${keyMatrix
@@ -117,7 +122,13 @@ export const renderDecodeHill = (cyphertext, key) => {
   </div>
   `
 
-  const templateHtml = renderEncodeHill(cyphertext, keyInverse, true, html)
+  const templateHtml = renderEncodeHill(
+    cyphertext,
+    keyInverse,
+    true,
+    html,
+    keyMatrix
+  )
 
   return templateHtml
 }
