@@ -23,7 +23,7 @@ export const renderEncodeHill = (
 
   let { keyMatrix } = result
 
-  if (success === false) {
+  if (success === false && !key.includes(',')) {
     return `${result.errorMessage}`
   }
 

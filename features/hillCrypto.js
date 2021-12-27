@@ -16,14 +16,18 @@ import { congruenceEquation } from './index.js'
 
 export const encodeHill = (plaintext, key, isDecode = false) => {
   // TODO:Chuyển khóa thành ma trận
-  const keyArr = encodeAlphabet(key)
+  let keyArr
+
+  keyArr = encodeAlphabet(key)
+  if (key.includes(',')) keyArr = key.split(',').map(item => Number(item))
+
   const keyMatrix = arrayToMatrix(keyArr)
   const keyMatrixLength = keyMatrix.length
 
   // TODO:Error handle
-  if (key.length === 0 || key.length === 1)
+  if (keyArr.length === 0 || keyArr.length === 1)
     return { success: false, errorMessage: 'Độ dài khóa phải lớn hơn 1' }
-  if (!squareNumbers.includes(key.length))
+  if (!squareNumbers.includes(keyArr.length))
     return {
       success: false,
       errorMessage: 'Độ dài khóa phải là 1 số chính phương (VD: 4, 9, 16, ...)',
