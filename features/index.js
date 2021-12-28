@@ -10,6 +10,7 @@ export { primitiveRoot, discreteLogarithm } from './primitiveRoot.js'
 export { encodeHill, decodeHill } from './hillCrypto.js'
 export { findKeyDES } from './desCrypto.js'
 export { encodeVigenere, decodeVigenere } from './vigenereCrypto.js'
+export { encodeAffine, encodeAffineWithChar } from './affineCrypto.js'
 
 // * IMPORT VÔ FILE NÀO CẦN UTILS RỒI XÓA MẤY CÁI KHÔNG CẦN THIẾT
 // import {

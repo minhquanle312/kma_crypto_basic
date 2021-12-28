@@ -77,3 +77,22 @@ export const numberToZ26 = (number, n = 26) => {
   } while (result < 0)
   return result
 }
+
+// *Giải hệ phương trình bậc I 2 ẩn
+export const equationOfSystem = (a1, b1, c1, a2, b2, c2) => {
+  let x, y, d, dx, dy
+  d = a1 * b2 - b1 * a2
+  dx = c1 * b2 - c2 * b1
+  dy = a1 * c2 - c1 * a2
+  if (d == dx && dx == dy && dy == 0) {
+    return false
+  }
+  if (d != 0) {
+    x = parseFloat(dx / d)
+    y = parseFloat(dy / d)
+    return { x, y, d }
+  }
+  if ((d == 0 && dx != 0) || (dx == 0 && dy != 0)) {
+    return false
+  }
+}

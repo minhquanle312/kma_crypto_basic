@@ -1,5 +1,3 @@
-'use strict'
-
 import { ALPHABET, encodeAlphabet, numberToZ26 } from '../utils/index.js'
 
 export const encodeVigenere = (plaintext, key, isDecode = false) => {

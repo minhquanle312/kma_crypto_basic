@@ -1,7 +1,8 @@
 import { calcInverseZn } from '../../features/calcInverseZn.js'
 
 export const renderInverseZn = (b, n) => {
-  const { arr1, x } = calcInverseZn(b, n)
+  const { arr1, x, result } = calcInverseZn(b, n)
+  // const isZ26 = result >= 0 && <= 26
 
   return `
   <table>
@@ -21,6 +22,8 @@ export const renderInverseZn = (b, n) => {
       )
       .join('')}
   </table>
-  <p>&rArr; x = ${x} = ${n} - ${-x} = ${Number(n) + x}</p>
+  <p>&rArr; x = ${
+    x >= 0 && x <= 26 ? `${result}` : `${x} = ${n} - ${-x} = ${result}`
+  }</p>
   `
 }

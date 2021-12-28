@@ -12,6 +12,7 @@ export {
   hexToBin,
   encodeAlphabet,
   numberToZ26,
+  equationOfSystem,
 } from './mathHandle.js'
 export {
   matDecompose,

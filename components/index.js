@@ -16,6 +16,8 @@ export {
   renderEncodeHill,
   renderDecodeHill,
   renderK1DES,
+  renderEncodeAffine,
+  renderEncodeAffineWithChar,
 } from './crypto/index.js'
 
 export const renderBlock = (
@@ -90,19 +92,18 @@ export const renderBlock = (
             ${Object.keys(options[option].input)
               .map(
                 // [plaintext, key]
-                (item, i) =>
-                  `
-                <div class="form-group">
-                  <label 
-                    for="input-${name}--${option}-${item}"
-                  >
-                    ${options[option].input[item]}
-                  </label>
-                  <input 
-                    type="text" 
-                    id="input-${name}--${option}-${item}" 
-                  />
-                </div>
+                (item, i) => `
+                  <div class="form-group">
+                    <label 
+                      for="input-${name}--${option}-${item}"
+                    >
+                      ${options[option].input[item]}
+                    </label>
+                    <input 
+                      type="text" 
+                      id="input-${name}--${option}-${item}" 
+                    />
+                  </div>
                 `
               )
               .join('')}

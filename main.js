@@ -19,13 +19,12 @@ import {
   renderEncodeHill,
   renderDecodeHill,
   renderK1DES,
+  renderEncodeAffine,
+  renderEncodeAffineWithChar,
 } from './components/index.js'
 
-const loggerEncode3 = function (params) {
+const loggerEncode3 = function (params, key) {
   console.log('encode logger 3')
-}
-const loggerDecode3 = function (params) {
-  console.log('decode logger 3')
 }
 
 // *RENDER MATH
@@ -142,6 +141,7 @@ renderBlock(
 )
 
 // *Render crypto
+// todo: Vigenere
 renderBlock(
   'nav__list--crypto',
   { 'crypto-vigenere': 'Mật mã Vigenere' },
@@ -165,6 +165,7 @@ renderBlock(
   renderDecodeVigenere
 )
 
+// todo: hill
 renderBlock(
   'nav__list--crypto',
   { 'crypto-hill': 'Mật mã Hill' },
@@ -188,6 +189,7 @@ renderBlock(
   renderDecodeHill
 )
 
+// todo: DES
 renderBlock(
   'nav__list--crypto',
   { 'crypto-des': 'Mật mã DES' },
@@ -202,6 +204,38 @@ renderBlock(
   },
   renderK1DES
 )
+
+// todo: Affine
+renderBlock(
+  'nav__list--crypto',
+  { 'crypto-affine': 'Mật mã Affine' },
+  {
+    encode: {
+      text: 'Mã hóa Affine',
+      input: {
+        plaintext: 'Bản rõ',
+        key: 'Khóa k(a, b) (VD input: 7, 3)',
+        type: '"encode" hoặc "decode"',
+      },
+    },
+    encodeWithChar: {
+      text: "Mã hóa Affine biết a', b' là mã hóa của a, b",
+      input: {
+        plaintext: 'Bản rõ',
+        a: 'a',
+        aDecode: "a'",
+        b: 'b',
+        bDecode: "b'",
+        type: '"encode" hoặc "decode"',
+      },
+    },
+  },
+  renderEncodeAffine,
+  renderEncodeAffineWithChar
+)
+
+// renderEncodeAffine('axg', '7,3', 'decode')
+
 // ********* MATRIX *************
 // TODO: Nhân 2 ma trận
 // console.table(

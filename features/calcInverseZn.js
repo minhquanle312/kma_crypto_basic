@@ -1,5 +1,7 @@
 'use strict'
 
+import { numberToZ26 } from '../utils/index.js'
+
 // *Tìm x trong miền Z[n]: tính nghịch đảo trong Z[n]
 export const calcInverseZn = (b, n) => {
   const arr1 = [new Array(7)]
@@ -49,5 +51,7 @@ export const calcInverseZn = (b, n) => {
   arr1[i - 1][3] = undefined
   arr1[i - 1][6] = undefined
 
-  return { arr1, x }
+  const result = numberToZ26(x)
+
+  return { arr1, x, result }
 }
