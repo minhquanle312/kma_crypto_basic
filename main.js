@@ -218,14 +218,15 @@ renderBlock(
         type: '"encode" hoặc "decode"',
       },
     },
-    encodeWithChar: {
+    // ?It's not decode but this name work correct
+    decode: {
       text: "Mã hóa Affine biết a', b' là mã hóa của a, b",
       input: {
         plaintext: 'Bản rõ',
-        a: 'a',
-        aDecode: "a'",
-        b: 'b',
-        bDecode: "b'",
+        a: '<strong style="color: #228be6">a</strong>',
+        aEncode: `<strong style="color: #228be6">a'</strong> là mã hóa của <strong style="color: #228be6">a</strong>`,
+        b: '<strong style="color: #fd7e14">b</strong>',
+        bEncode: `<strong style="color: #fd7e14">b'</strong> là mã hóa của <strong style="color: #fd7e14">b</strong>`,
         type: '"encode" hoặc "decode"',
       },
     },

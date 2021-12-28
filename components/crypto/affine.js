@@ -84,6 +84,6 @@ export const renderEncodeAffineWithChar = (
   `
 
   const content = renderEncodeAffine(plaintext, `${aResult}, ${bResult}`, type)
-  console.log(findAB)
+  // console.log(findAB)
   return intro + content
 }
