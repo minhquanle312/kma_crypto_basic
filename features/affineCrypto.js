@@ -3,6 +3,7 @@ import {
   encodeAlphabet,
   numberToZ26,
   equationOfSystem,
+  gcd,
 } from '../utils/index.js'
 import { calcInverseZn } from './index.js'
 
@@ -72,9 +73,26 @@ export const encodeAffineWithChar = (
   // console.log(equationResult)
   const { x, y, d } = equationResult
   // console.log(x * d)
+  const aGCD = gcd(x * -d, -d)
+  const aNumerator = (x * -d) / aGCD
+  const aDenominator = -d / aGCD
+  console.log(`${aNumerator} / ${aDenominator}`)
 
-  const aResult = numberToZ26(x * -d * calcInverseZn(-d, 26).result)
-  const bResult = numberToZ26(y * -d * calcInverseZn(-d, 26).result)
+  const bGCD = gcd(y * -d, -d)
+  const bNumerator = (y * -d) / bGCD
+  const bDenominator = -d / bGCD
+  console.log(`${bNumerator} / ${bDenominator}`)
+
+  // const aResult = numberToZ26(x * -d * calcInverseZn(-d, 26).result)
+  // const bResult = numberToZ26(y * -d * calcInverseZn(-d, 26).result)
+
+  const aResult = numberToZ26(
+    numberToZ26(aNumerator) * calcInverseZn(aDenominator, 26).result
+  )
+  const bResult = numberToZ26(
+    numberToZ26(bNumerator) * calcInverseZn(bDenominator, 26).result
+  )
+  // console.log(aResult, bResult)
   // console.log(a, b)
   // const result = encodeAffine(plaintext, `${a}, ${b}`, type)
   // console.log(result)
@@ -82,6 +100,10 @@ export const encodeAffineWithChar = (
     x,
     y,
     d,
+    aNumerator,
+    aDenominator,
+    bNumerator,
+    bDenominator,
     aResult,
     bResult,
     aNum,

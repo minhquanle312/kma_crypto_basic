@@ -56,8 +56,21 @@ export const renderEncodeAffineWithChar = (
   type = 'encode'
 ) => {
   const findAB = encodeAffineWithChar(a, aEncode, b, bEncode)
-  const { x, y, d, aResult, bResult, aNum, aEncodeNum, bNum, bEncodeNum } =
-    findAB
+  const {
+    x,
+    y,
+    d,
+    aNumerator,
+    aDenominator,
+    bNumerator,
+    bDenominator,
+    aResult,
+    bResult,
+    aNum,
+    aEncodeNum,
+    bNum,
+    bEncodeNum,
+  } = findAB
   const intro = `
   <div>
     &emsp;${aEncode} &rarr;	${a} &emsp;&emsp;&emsp; ${bEncode} &rarr;	${b} <br>
@@ -68,17 +81,13 @@ export const renderEncodeAffineWithChar = (
 
     <span style="color: red;">Bấm lại máy tính để kiểm tra hệ phương trình, nếu giải sai thì giải tay sau đó điền a, b vào chức năng "mã hóa Affine" bên cạnh</span>
     <br>
-    &rArr;a = <sup>${x * -d}</sup>&frasl;<sub>${-d}</sub> = ${
-    x * -d
-  }&times;${-d}<sup>-1</sup> mod 26 = ${x * -d}&times;${
-    calcInverseZn(-d, 26).result
-  } = ${aResult}
+    &rArr;a = <sup>${aNumerator}</sup>&frasl;<sub>${aDenominator}</sub> = ${aNumerator}&times;${aDenominator}<sup>-1</sup> mod 26 = ${aNumerator}&times;${
+    calcInverseZn(aDenominator, 26).result
+  } mod 26 = ${aResult}
     <br>
-    &emsp;b = <sup>${y * -d}</sup>&frasl;<sub>${-d}</sub> = ${
-    y * -d
-  }&times;${-d}<sup>-1</sup> mod 26 = ${y * -d}&times;${
-    calcInverseZn(-d, 26).result
-  } = ${bResult}
+    &emsp;b = <sup>${bNumerator}</sup>&frasl;<sub>${bDenominator}</sub> = ${bNumerator}&times;${bDenominator}<sup>-1</sup> mod 26 = ${bNumerator}&times;${
+    calcInverseZn(bDenominator, 26).result
+  } mod 26 = ${bResult}
 
   </div>
   `
