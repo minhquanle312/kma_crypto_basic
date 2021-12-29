@@ -18,6 +18,7 @@ export {
   renderK1DES,
   renderEncodeAffine,
   renderEncodeAffineWithChar,
+  renderRSA,
 } from './crypto/index.js'
 
 export const renderBlock = (

@@ -21,11 +21,16 @@ import {
   renderK1DES,
   renderEncodeAffine,
   renderEncodeAffineWithChar,
+  renderRSA,
 } from './components/index.js'
 
 const loggerEncode3 = function (params, key) {
   console.log('encode logger 3')
 }
+
+import { rsa } from './features/index.js'
+// rsa(11, 3, 3, 15)
+rsa(11, 13, 37, 29)
 
 // *RENDER MATH
 renderBlock(
@@ -233,6 +238,23 @@ renderBlock(
   },
   renderEncodeAffine,
   renderEncodeAffineWithChar
+)
+
+renderBlock(
+  'nav__list--crypto',
+  { 'crypto-rsa': 'Mật mã RSA' },
+  {
+    encode: {
+      text: 'Mô phỏng quá trình mã hóa RSA',
+      input: {
+        p: 'p (số nguyên tố)',
+        q: 'q (số nguyên tố)',
+        e: 'e',
+        m: 'm',
+      },
+    },
+  },
+  renderRSA
 )
 
 // renderEncodeAffine('axg', '7,3', 'decode')
