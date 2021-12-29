@@ -51,7 +51,7 @@ export const calcInverseZn = (b, n) => {
   arr1[i - 1][3] = undefined
   arr1[i - 1][6] = undefined
 
-  const result = numberToZ26(x)
+  const result = numberToZ26(x, n)
 
   return { arr1, x, result }
 }

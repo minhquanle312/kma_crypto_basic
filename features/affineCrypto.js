@@ -73,15 +73,24 @@ export const encodeAffineWithChar = (
   // console.log(equationResult)
   const { x, y, d } = equationResult
   // console.log(x * d)
+  console.log(d)
   const aGCD = gcd(x * -d, -d)
-  const aNumerator = (x * -d) / aGCD
-  const aDenominator = -d / aGCD
-  console.log(`${aNumerator} / ${aDenominator}`)
+  let aNumerator = (x * -d) / aGCD
+  let aDenominator = -d / aGCD
+  if (aDenominator < 0) {
+    aNumerator = -aNumerator
+    aDenominator = -aDenominator
+  }
+  console.log(`${aGCD} ${aNumerator} / ${aDenominator}`)
 
   const bGCD = gcd(y * -d, -d)
-  const bNumerator = (y * -d) / bGCD
-  const bDenominator = -d / bGCD
-  console.log(`${bNumerator} / ${bDenominator}`)
+  let bNumerator = (y * -d) / bGCD
+  let bDenominator = -d / bGCD
+  if (bDenominator < 0) {
+    bNumerator = -bNumerator
+    bDenominator = -bDenominator
+  }
+  console.log(`${bGCD} ${bNumerator} / ${bDenominator}`)
 
   // const aResult = numberToZ26(x * -d * calcInverseZn(-d, 26).result)
   // const bResult = numberToZ26(y * -d * calcInverseZn(-d, 26).result)

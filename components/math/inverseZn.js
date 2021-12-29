@@ -23,7 +23,7 @@ export const renderInverseZn = (b, n) => {
       .join('')}
   </table>
   <p>&rArr; x = ${
-    x >= 0 && x <= 26 ? `${result}` : `${x} = ${n} - ${-x} = ${result}`
+    x >= 0 && x <= n ? `${result}` : `${x} = ${n} - ${-x} = ${result}`
   }</p>
   `
 }
