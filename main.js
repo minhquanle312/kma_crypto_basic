@@ -24,8 +24,11 @@ import {
   renderRSA,
 } from './components/index.js'
 
+import { calcInverseZn } from './features/index.js'
+console.log(calcInverseZn(117, 1120))
+
 const loggerEncode3 = function (params, key) {
-  console.log('encode logger 3')
+  return `${params}`
 }
 
 import { rsa } from './features/index.js'
@@ -74,6 +77,7 @@ renderBlock(
     },
   },
   renderSRTinZ
+  // loggerEncode3
 )
 
 renderBlock(
@@ -114,6 +118,7 @@ renderBlock(
   renderDiscreteLogarithm
 )
 
+// todo: tìm nghịch đảo trong Z[n]
 renderBlock(
   'nav__list--math',
   { 'inverse-Zn': 'Tìm nghịch đảo trong Z<sub>n</sub>' },
@@ -127,6 +132,7 @@ renderBlock(
     },
   },
   renderInverseZn
+  // loggerEncode3
 )
 
 renderBlock(
