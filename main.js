@@ -24,16 +24,12 @@ import {
   renderRSA,
 } from './components/index.js'
 
-import { calcInverseZn } from './features/index.js'
-console.log(calcInverseZn(117, 1120))
+// import { calcInverseZn } from './features/index.js'
+// console.log(calcInverseZn(117, 1120))
 
 const loggerEncode3 = function (params, key) {
-  return `${params}`
+  return `${params} - ${key}`
 }
-
-import { rsa } from './features/index.js'
-// rsa(11, 3, 3, 15)
-rsa(11, 13, 37, 29)
 
 // *RENDER MATH
 renderBlock(
@@ -132,7 +128,6 @@ renderBlock(
     },
   },
   renderInverseZn
-  // loggerEncode3
 )
 
 renderBlock(
