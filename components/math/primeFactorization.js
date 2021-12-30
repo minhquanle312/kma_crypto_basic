@@ -1,6 +1,7 @@
 import { primeFactorization } from '../../utils/index.js'
 
 export const renderPrimeFactorization = number => {
+  number = Number(number)
   const result = primeFactorization(number) // 616 => {2: 3, , 7: 1, 11: 1}
 
   const keys = Object.keys(result)
