@@ -65,7 +65,7 @@ renderBlock(
   { 'find-srt': 'Tìm s, r, t của a, b trong Z' },
   {
     primeFactorization: {
-      text: 'Tìm s, r, t',
+      text: 'Tìm s, r, t (Euclid mở rộng: vd: ax + by = 1)',
       input: {
         a: 'Nhập a',
         b: 'Nhập b',
